@@ -1,0 +1,74 @@
+= Dogs API Specification.
+
+== Get list of dogs.
+A `GET` request is used to access the dogs list.
+
+=== HTTP Request.
+include::{snippets}/getDogs/http-request.adoc[]
+
+=== HTTP Response.
+include::{snippets}/getDogs/http-response.adoc[]
+
+=== Curl Request.
+include::{snippets}/getDogs/curl-request.adoc[]
+
+=== Response body.
+include::{snippets}/getDogs/response-body.adoc[]
+
+== Get one dog by ID.
+A `GET` request with `dogId` parameter is required.
+
+=== HTTP Request.
+include::{snippets}/getOneDogById/http-request.adoc[]
+
+==== Path parameters.
+include::{snippets}/getOneDogById/path-parameters.adoc[]
+
+=== HTTP Response.
+include::{snippets}/getOneDogById/http-response.adoc[]
+
+=== Curl Request.
+include::{snippets}/getOneDogById/curl-request.adoc[]
+
+=== Response Body.
+include::{snippets}/getOneDogById/response-body.adoc[]
+
+== Save dog.
+
+A `POST` request with parameters: `id - may not be indicated`, `name`, `breed`.
+
+=== HTTP Request.
+include::{snippets}/saveDog/http-request.adoc[]
+
+=== Request fields.
+include::{snippets}/saveDog/request-fields.adoc[]
+
+=== HTTP Response.
+include::{snippets}/saveDog/http-response.adoc[]
+
+=== Curl Request.
+include::{snippets}/saveDog/curl-request.adoc[]
+
+=== Request Body.
+include::{snippets}/saveDog/request-body.adoc[]
+
+== Delete dog.
+
+A `DELETE` request with `dogId` parameter is required.
+
+=== HTTP Request.
+include::{snippets}/deleteDogById/http-request.adoc[]
+
+=== Path parameters.
+include::{snippets}/deleteDogById/path-parameters.adoc[]
+
+=== HTTP Response.
+include::{snippets}/deleteDogById/http-response.adoc[]
+
+=== Curl Request.
+include::{snippets}/deleteDogById/curl-request.adoc[]
+
+=== HTTPie Request.
+include::{snippets}/deleteDogById/httpie-request.adoc[]
+
+
