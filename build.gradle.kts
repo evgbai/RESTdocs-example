@@ -1,8 +1,9 @@
 import org.asciidoctor.gradle.jvm.AsciidoctorTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-//
+
+/* Variable Asciidoctor for snippets path. */
 val snippetsDir by extra { file("build/generated-snippets") }
-//
+
 plugins {
     id("org.springframework.boot") version "2.7.5"
     id("io.spring.dependency-management") version "1.0.15.RELEASE"
@@ -41,19 +42,31 @@ dependencies {
 }
 
 tasks {
-    //  KotlinCompile
+    /* KotlinCompile */
     withType<KotlinCompile> {
         kotlinOptions {
             freeCompilerArgs = listOf("-Xjsr305=strict")
             jvmTarget = "17"
         }
     }
-    //  Test
+
+    /* Archive named as project */
+    bootJar {
+        archiveFileName.set("${project.name}.jar")
+    }
+
+    /* Disable Plain jar */
+    jar {
+        enabled = false
+    }
+
+    /* Test */
     withType<Test> {
         useJUnitPlatform()
         outputs.dir(snippetsDir)
     }
-    //  AsciidoctorTask
+
+    /* AsciidoctorTask */
     withType<AsciidoctorTask> {
         dependsOn(withType<Test>())
         inputs.dir(snippetsDir)

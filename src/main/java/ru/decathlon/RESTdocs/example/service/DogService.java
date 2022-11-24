@@ -32,8 +32,8 @@ public class DogService {
     }
 
     public void deleteDogById(Long dogId) {
-        var doggy = repository.findById(dogId)
+        var dog = repository.findById(dogId)
                 .orElseThrow(NoSuchElementException::new);
-        repository.delete(doggy);
+        repository.delete(dog);
     }
 }
